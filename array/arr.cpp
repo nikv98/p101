@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -32,6 +33,17 @@ bool set(int index, int value){
 }
 
 /*
+	lets calculate the sum of the contents of the array
+*/
+int getTotal(){
+	int total;
+	for(int index = 0; index < size; index++){
+		total += get(index);
+	}
+	return total;
+}
+
+/*
 	Lets print out the contents of our array
 */
 void print(){
@@ -49,4 +61,6 @@ int main(){
 		set(n, rand()%100 + 1); //lets add a random number between 1-100 inclusive
 	}
 	print();
+	cout << "total: " << getTotal() << endl;
+	cout << endl;
 }

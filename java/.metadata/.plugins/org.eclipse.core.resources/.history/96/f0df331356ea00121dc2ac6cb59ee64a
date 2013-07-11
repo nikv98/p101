@@ -1,4 +1,4 @@
-import java.util.Scanner;
+
 
 public class Driver {
 
@@ -9,10 +9,6 @@ public class Driver {
 		System.out.println();
 		Warrior traveler = new Warrior("The Wanderer");
 		System.out.println(traveler);
-		
-		System.out.println("Press Any Key to start Battle.....");
-		Scanner scan = new Scanner(System.in);
-		scan.nextLine();
 		
 		int namelessWins = 0;
 		int travelerWins = 0;

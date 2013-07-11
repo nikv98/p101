@@ -135,7 +135,7 @@ public class Warrior
 	public int getDamage()
 	{
 		//a longsword has 1d8 damage
-		return new Dice(1, maxDice).roll();
+		return rand.nextInt(maxDice) + 1;
 	}
 	
 	public String toString()

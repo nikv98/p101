@@ -1,0 +1,18 @@
+
+public class Weapon {
+	
+	public String name;
+	private int dmg;
+	private int critical;
+	
+	/**
+	 * the constructor for a weapon
+	 */
+	public Weapon(String name, int damage, critical)
+	{
+		this.name = name;
+		this.dmg = damage;
+		this.critical = critical;
+	}
+	
+}

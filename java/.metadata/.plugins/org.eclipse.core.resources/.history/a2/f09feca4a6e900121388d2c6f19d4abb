@@ -1,0 +1,78 @@
+import java.util.Random;
+
+public class Warrior 
+{	
+	private String name;
+	private int hp;
+	private int str; //a character's strength in combat
+	private int dex; //a character's nimbleness and proficiency with ranged weapons
+	private int con; //a character's fortitude 
+	private int intel; //a character's intelligence and craftiness
+	private int wis; //will power and intuition
+	private int cha; //is a character's street smarts, personality, and persuade
+	
+	Random rand;
+	
+	/**
+	 * This initalizes all the variables to create a warrior
+	 */
+	public Warrior(String name)
+	{	
+		rand = new Random();
+		this.name = name;
+		
+		str = getAbilityScore();
+		con = getAbilityScore();
+		intel = getAbilityScore();
+		wis = getAbilityScore();
+		cha = getAbilityScore();
+		hp = (rand.nextInt(8) + 1) + con; //lets roll a d8 + con modifier for hp
+	}
+	
+	public int getAbilityScore()
+	{
+		int[] diceRolls = new int[4];
+		//rolls a d6 4 times
+		for(int n = 0; n < diceRolls.length; n++){
+			diceRolls[n] = rand.nextInt(6) + 1;
+		}
+		//1. sort the array this is bubble sort
+		for(int m = 0; m < diceRolls.length; m++){
+			for(int n = 0; n < diceRolls.length; n++){
+				if(diceRolls[n] > diceRolls[m]){
+					int swap = diceRolls[m];
+					diceRolls[m] = diceRolls[n];
+					diceRolls[n] = swap;
+				}
+			}
+		}
+		int a = diceRolls[2];
+		int b = diceRolls[3];
+		for(int n = 0; n < diceRolls.length; n++){
+			System.out.println(diceRolls[n]);
+		}
+		return a + b;
+	}
+	
+	public int getAbilityModifier(int abilityScore)
+	{
+		//lets check if the modifier is even
+		if(abilityScore%2 == 0)
+		{
+			return abilityScore/2-5;
+		}else{
+			return abilityScore/2-6;
+		}
+	}
+	
+	public String toString()
+	{
+		return this.name + "hp: " + this.hp + '\n' +
+			   "str: " + this.str + '\n' +
+			   "dex: " + this.dex + '\n' +
+			   "con: " + this.con + '\n' +
+			   "intel: " + this.intel + '\n' +
+			   "wis: " + this.wis + '\n' +
+			   "cha: " + this.cha;
+	}
+}

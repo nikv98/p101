@@ -1,0 +1,30 @@
+
+
+public class Driver {
+
+	public static void main(String[] args) {
+		Warrior nameless = new Warrior("The Nameless One");
+		System.out.println(nameless);
+		Warrior traveler = new Warrior("The Wanderer");
+		System.out.println(traveler);
+		
+		//who attacks first?
+		int namelessInit = nameless.rollForInitiative();
+		int travelerInit = traveler.rollForInitiative();
+		while(namelessInit == travelerInit){
+			namelessInit = nameless.rollForInitiative();
+			travelerInit = traveler.rollForInitiative();
+		}
+		//we have the order of battle
+		
+		//lets fight to the death!!
+		while(nameless.hp > 0 && traveler.hp > 0){ //battle loop
+			if(namelessInit > travelerInit){
+				nameless.attack(traveler);
+			}else{
+				traveler.attack(nameless);
+			}
+		}
+	}
+
+}
